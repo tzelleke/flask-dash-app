@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block styles %}
+  {{ super() }}
+  {{ styles }}
+{% endblock %}
+{% block content %}
+  <div class="container pb-5">
+    <div class="row justify-content-center">
+      <div class="col-auto col-md-10">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+  {% include 'partials/footer.html' %}
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+{% endblock %}

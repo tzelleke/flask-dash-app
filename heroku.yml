@@ -1,0 +1,8 @@
+setup:
+  config:
+    APP_NAME: Flask Dash App
+build:
+  docker:
+    web: ./Dockerfile
+run:
+  web: uwsgi --http 0:$PORT --wsgi-file ./app/main.py #--master --processes 4 --threads 2

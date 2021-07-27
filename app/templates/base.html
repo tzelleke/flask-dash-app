@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {% block meta %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {% endblock %}
+
+  {% block styles %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css"
+          integrity="sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN" crossorigin="anonymous">
+    <!-- Font Awesome Icons CSS -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"
+          integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/brands.min.css"
+          integrity="sha256-nNY7jOolBFwUYjxTjSZ1JRiljAxoJ5XOatMHiXbGWjc=" crossorigin="anonymous">
+    <style>
+      body {
+          padding-top: 90px;
+      }
+    </style>
+  {% endblock %}
+
+  <title>{% block title %}{{ config['APP_NAME'] }}{% endblock %}</title>
+</head>
+<body>
+
+{% include 'partials/navbar.html' %}
+<div id="main">
+  {% block content %}
+  {% endblock %}
+</div>
+
+{% block scripts %}
+  {% include 'partials/jquery.html' %}
+{% endblock %}
+
+</body>
+</html>
