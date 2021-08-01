@@ -100,7 +100,10 @@ Add the new route to the global navbar in `app/templates/partials/navbar.html`
 
 ## Development
 
-Todo
+Manage python dependencies (using [Poetry](https://python-poetry.org/docs/))
+```shell
+docker-compose run web poetry update # ... or any other poetry command
+```
 
 ## Global layout: integration of individual dash apps
 
