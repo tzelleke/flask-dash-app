@@ -1,7 +1,9 @@
 from .dash import Dash
 import dash_html_components as html
 
-app_layout = html.Div(children=[html.H1(children="Hello Dash")], className="container-fluid")
+app_layout = html.Div(
+    children=[html.H1(children="Hello Dash")], className="container-fluid"
+)
 
 
 def init_dash(server):
