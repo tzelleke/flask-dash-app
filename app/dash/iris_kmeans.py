@@ -51,7 +51,7 @@ controls = dbc.Card(
 
 app_layout = dbc.Container(
     [
-        html.H1("Iris K-Means clustering"),
+        html.H1("Iris k-means clustering"),
         html.Hr(),
         dbc.Row(
             [dbc.Col(controls, md=4), dbc.Col(dcc.Graph(id="cluster-graph"), md=8),],
