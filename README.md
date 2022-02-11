@@ -2,6 +2,13 @@
 
 This is a demo application that can serve as a starter project template.
 
+UPDATE:
+
+- [Base image updated to Python 3.9](https://github.com/tiangolo/uwsgi-nginx-flask-docker)
+- [Plotly-Dash v2](https://dash.plotly.com/dash-2-0-migration)
+- [Dash Bootstrap Components v1](https://dash-bootstrap-components.opensource.faculty.ai/migration-guide/)
+- [Bootstrap 5](https://getbootstrap.com/)
+
 <img src="app/static/flask-dash-app.png" alt="Application Outline"
 title="Application Outline" class="w-100" />
 
@@ -29,7 +36,7 @@ It allows you to
 Docker base image:
 [https://github.com/tiangolo/uwsgi-nginx-flask-docker](https://github.com/tiangolo/uwsgi-nginx-flask-docker)
 
-- [Bootstrap 4]()
+- [Bootstrap 5](https://getbootstrap.com/)
 - [Dash Bootstrap Components](https://dash-bootstrap-components.opensource.faculty.ai/)
 
 ## Getting started

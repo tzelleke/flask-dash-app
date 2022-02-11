@@ -4,8 +4,8 @@ Dash port of Shiny iris k-means example:
 https://shiny.rstudio.com/gallery/kmeans-example.html
 """
 import dash_bootstrap_components as dbc
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
+from dash import html
 import pandas as pd
 import plotly.graph_objs as go
 from dash.dependencies import Input, Output
@@ -19,7 +19,7 @@ iris = pd.DataFrame(iris_raw["data"], columns=iris_raw["feature_names"])
 
 controls = dbc.Card(
     [
-        dbc.FormGroup(
+        dbc.Col(
             [
                 dbc.Label("X variable"),
                 dcc.Dropdown(
@@ -29,7 +29,7 @@ controls = dbc.Card(
                 ),
             ]
         ),
-        dbc.FormGroup(
+        dbc.Col(
             [
                 dbc.Label("Y variable"),
                 dcc.Dropdown(
@@ -39,7 +39,7 @@ controls = dbc.Card(
                 ),
             ]
         ),
-        dbc.FormGroup(
+        dbc.Col(
             [
                 dbc.Label("Cluster count"),
                 dbc.Input(id="cluster-count", type="number", value=3),

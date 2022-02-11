@@ -10,7 +10,7 @@ from markupsafe import Markup
 def index():
     with open("README.md", "r") as fp:
         formatter = HtmlFormatter(
-            style="solarizeddark", full=True, cssclass="codehilite",
+            style="solarized-dark", full=True, cssclass="codehilite",
         )
         styles = f"<style>{formatter.get_style_defs()}</style>"
         html = (

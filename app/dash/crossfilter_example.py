@@ -1,6 +1,6 @@
 from dash.dependencies import Input, Output
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
+from dash import html
 import dash_bootstrap_components as dbc
 import plotly.graph_objs as go
 import pandas as pd
@@ -27,7 +27,7 @@ app_layout = dbc.Container(
                                     ],
                                     value="Fertility rate, total (births per woman)",
                                 ),
-                                dbc.FormGroup(
+                                dbc.Col(
                                     [
                                         dbc.RadioItems(
                                             id="crossfilter-xaxis-type",
@@ -79,7 +79,7 @@ app_layout = dbc.Container(
                                     ],
                                     value="Life expectancy at birth, total (years)",
                                 ),
-                                dbc.FormGroup(
+                                dbc.Col(
                                     [
                                         dbc.RadioItems(
                                             id="crossfilter-yaxis-type",
