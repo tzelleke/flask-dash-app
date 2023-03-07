@@ -6,9 +6,7 @@ authors = ["tzelleke <theodros.zelleke@gmail.com>"]
 maintainers = ["tzelleke <theodros.zelleke@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://hackersandslackers.com/plotly-dash-with-flask/"
-repository = "https://github.com/toddbirchard/plotlydash-flask-tutorial/"
-documentation = "https://hackersandslackers.com/plotly-dash-with-flask/"
+repository = "https://github.com/tzelleke/flask-dash-app"
 keywords = [
     "Flask",
     "Plotly",
