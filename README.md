@@ -2,9 +2,7 @@
 
 This is a demo application that can serve as a starter project template.
 
-UPDATE:
-
-- [Base image updated to Python 3.9](https://github.com/tiangolo/uwsgi-nginx-flask-docker)
+- [Base image Python 3.11](https://github.com/tiangolo/uwsgi-nginx-flask-docker)
 - [Plotly-Dash v2](https://dash.plotly.com/dash-2-0-migration)
 - [Dash Bootstrap Components v1](https://dash-bootstrap-components.opensource.faculty.ai/migration-guide/)
 - [Bootstrap 5](https://getbootstrap.com/)

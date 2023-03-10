@@ -15,7 +15,7 @@ keywords = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.11"
 Flask = "^2.2.3"
 dash = "^2.8.1"
 dash-bootstrap-components = "^1.4.0"
