@@ -1,14 +1,16 @@
-version: '3.4'
+version: '3.9'
 
 services:
-  web:
+  app:
     build: ./
-    container_name: web
+    container_name: app
     environment:
       FLASK_ENV: development
       FLASK_APP: app/main
+      FLASK_RUN_HOST: "0.0.0.0"
+      FLASK_RUN_PORT: "80"
     ports:
       - "${PORT}:80"
     volumes:
       - "${PWD}:/app"
-    command: flask run --host=0.0.0.0 --port 80
+    command: ["flask", "run"]
