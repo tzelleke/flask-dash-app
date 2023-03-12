@@ -1,33 +1,35 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">{{ config['APP_NAME'] }}</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">{{ config['APP_NAME'] }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false">
-          Dash Demo Apps
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/demo/">Simple Demo</a>
-          <a class="dropdown-item" href="/iris-k-means/">Iris k-means clustering</a>
-          <a class="dropdown-item" href="/crossfilter-example/">Crossfilter example</a>
-        </div>
-      </li>
-    </ul>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a target="_blank" rel="noopener" class="nav-link" href="https://github.com/tzelleke/flask-dash-app"><i
-            class="fab fa-github"></i> GitHub</a>
-      </li>
-      <li class="nav-item">
-        <a target="_blank" rel="noopener" class="nav-link" href="https://twitter.com/tzelleke/"><i
-            class="fab fa-twitter"></i> Twitter</a>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">
+            Dash Demo Apps
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/demo/">Simple Demo</a>
+            <a class="dropdown-item" href="/iris-k-means/">Iris k-means clustering</a>
+            <a class="dropdown-item" href="/crossfilter-example/">Crossfilter example</a>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a target="_blank" rel="noopener" class="nav-link" href="https://github.com/tzelleke/flask-dash-app"><i
+              class="fab fa-github"></i> GitHub</a>
+        </li>
+        <li class="nav-item">
+          <a target="_blank" rel="noopener" class="nav-link" href="https://twitter.com/tzelleke/"><i
+              class="fab fa-twitter"></i> Twitter</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>

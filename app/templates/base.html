@@ -9,14 +9,19 @@
 
   {% block styles %}
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css"
-          integrity="sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.3/dist/flatly/bootstrap.min.css"
+          integrity="sha256-+omx7xYvI+/C0kfnQmjAIW8dDbTweWpbYHWzveX4ii4="
+          crossorigin="anonymous">
     <!-- Font Awesome Icons CSS -->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"
-          integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/brands.min.css"
-          integrity="sha256-nNY7jOolBFwUYjxTjSZ1JRiljAxoJ5XOatMHiXbGWjc=" crossorigin="anonymous">
+          integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/brands.min.css"
+          integrity="sha256-nNY7jOolBFwUYjxTjSZ1JRiljAxoJ5XOatMHiXbGWjc="
+          crossorigin="anonymous">
     <style>
       body {
           padding-top: 90px;
@@ -35,7 +40,7 @@
 </div>
 
 {% block scripts %}
-  {% include 'partials/jquery.html' %}
+  {% include 'partials/scripts.html' %}
 {% endblock %}
 
 </body>
