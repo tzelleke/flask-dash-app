@@ -1,5 +1,11 @@
 # Flask Dash App
 
+!!Note: The default branch changed from `master` to `main`!!
+
+See this [gist](https://gist.github.com/danieldogeanu/739f88ea5312aaa23180e162e3ae89ab) for information on how to follow up in your fork.
+
+---
+
 This is a demo application that can serve as a starter project template.
 
 - [Base image Python 3.11](https://github.com/tiangolo/uwsgi-nginx-flask-docker)
@@ -22,7 +28,7 @@ It allows you to
 
 - [What's included](#whats-included)
 - [Getting started](#getting-started)
-    - [Integrate your Dash app](#integrate-your-dash-app)
+  - [Integrate your Dash app](#integrate-your-dash-app)
 - [Examples](#examples)
 - [Development](#development)
 - [Global layout: integration of individual dash apps](#global-layout-integration-of-individual-dash-apps)
@@ -106,6 +112,7 @@ Add the new route to the global navbar in `app/templates/partials/navbar.html`
 ## Development
 
 Manage python dependencies (using [Poetry](https://python-poetry.org/docs/))
+
 ```shell
 docker-compose run web poetry update # ... or any other poetry command
 ```
