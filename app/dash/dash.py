@@ -1,18 +1,18 @@
 import dash
-from markupsafe import Markup
 from flask import render_template
+from markupsafe import Markup
 
 
 class Dash(dash.Dash):
     def interpolate_index(
         self,
         metas="",
-        title="",
+        title="",  # noqa: ARG002
         css="",
         config="",
         scripts="",
         app_entry="",
-        favicon="",
+        favicon="",  # noqa: ARG002
         renderer="",
     ):
         # markupsafe.Markup is used to

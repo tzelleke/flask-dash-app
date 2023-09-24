@@ -1,13 +1,12 @@
+from dash import dcc, html
 from dash.dependencies import Input, Output
-from dash import dcc
-from dash import html
 import dash_bootstrap_components as dbc
-import plotly.graph_objs as go
 import pandas as pd
+import plotly.graph_objs as go
 
 from .dash import Dash
 
-df = pd.read_csv("app/data/indicators.csv")
+df = pd.read_csv("app/data/indicators.csv")  # noqa: PD901
 available_indicators = df["Indicator Name"].unique()
 
 app_layout = dbc.Container(
@@ -23,7 +22,8 @@ app_layout = dbc.Container(
                                 dcc.Dropdown(
                                     id="crossfilter-xaxis-column",
                                     options=[
-                                        {"label": i, "value": i} for i in available_indicators
+                                        {"label": i, "value": i}
+                                        for i in available_indicators
                                     ],
                                     value="Fertility rate, total (births per woman)",
                                 ),
@@ -33,14 +33,14 @@ app_layout = dbc.Container(
                                             id="crossfilter-xaxis-type",
                                             inline=True,
                                             options=[
-                                                {"label": i, "value": i} for i in ["Linear", "Log"]
+                                                {"label": i, "value": i}
+                                                for i in ["Linear", "Log"]
                                             ],
                                             value="Linear",
                                             labelStyle={"display": "inline-block"},
                                         ),
-
                                     ],
-                                    className="p-2"
+                                    className="p-2",
                                 ),
                             ]
                         ),
@@ -51,7 +51,13 @@ app_layout = dbc.Container(
                                     hoverData={"points": [{"customdata": "Japan"}]},
                                 )
                             ],
-                            # style={"width": "49%", "display": "inline-block", "padding": "0 20"},
+                            # style={
+                            #     "width": "49%",
+                            #     "display":
+                            #     "inline-block",
+                            #     "padding":
+                            #     "0 20"
+                            # },
                         ),
                         dbc.Card(
                             dcc.Slider(
@@ -60,7 +66,9 @@ app_layout = dbc.Container(
                                 max=df["Year"].max(),
                                 value=df["Year"].max(),
                                 step=None,
-                                marks={str(year): str(year) for year in df["Year"].unique()},
+                                marks={
+                                    str(year): str(year) for year in df["Year"].unique()
+                                },
                             ),
                             className="pt-2"
                             # style={"width": "49%", "padding": "0px 20px 20px 20px"},
@@ -75,7 +83,8 @@ app_layout = dbc.Container(
                                 dcc.Dropdown(
                                     id="crossfilter-yaxis-column",
                                     options=[
-                                        {"label": i, "value": i} for i in available_indicators
+                                        {"label": i, "value": i}
+                                        for i in available_indicators
                                     ],
                                     value="Life expectancy at birth, total (years)",
                                 ),
@@ -85,18 +94,22 @@ app_layout = dbc.Container(
                                             id="crossfilter-yaxis-type",
                                             inline=True,
                                             options=[
-                                                {"label": i, "value": i} for i in ["Linear", "Log"]
+                                                {"label": i, "value": i}
+                                                for i in ["Linear", "Log"]
                                             ],
                                             value="Linear",
                                             labelStyle={"display": "inline-block"},
                                         ),
                                     ],
-                                    className="p-2"
+                                    className="p-2",
                                 ),
                             ]
                         ),
                         dbc.Card(
-                            [dcc.Graph(id="x-time-series"), dcc.Graph(id="y-time-series"), ],
+                            [
+                                dcc.Graph(id="x-time-series"),
+                                dcc.Graph(id="y-time-series"),
+                            ],
                             # style={"display": "inline-block", "width": "49%"},
                         ),
                     ],
@@ -179,7 +192,7 @@ def update_y_timeseries(hoverData, xaxis_column_name, axis_type):
     country_name = hoverData["points"][0]["customdata"]
     dff = df[df["Country Name"] == country_name]
     dff = dff[dff["Indicator Name"] == xaxis_column_name]
-    title = "<b>{}</b><br>{}".format(country_name, xaxis_column_name)
+    title = f"<b>{country_name}</b><br>{xaxis_column_name}"
     return create_time_series(dff, axis_type, title)
 
 
@@ -224,7 +237,10 @@ def init_callbacks(dash_app):
 
 def init_dash(server):
     """Create a Plotly Dash dashboard."""
-    dash_app = Dash(server=server, routes_pathname_prefix="/crossfilter-example/", )
+    dash_app = Dash(
+        server=server,
+        routes_pathname_prefix="/crossfilter-example/",
+    )
 
     # create dash layout
     dash_app.layout = app_layout

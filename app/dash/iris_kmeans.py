@@ -3,12 +3,11 @@ Dash port of Shiny iris k-means example:
 
 https://shiny.rstudio.com/gallery/kmeans-example.html
 """
+from dash import dcc, html
+from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
-from dash import dcc
-from dash import html
 import pandas as pd
 import plotly.graph_objs as go
-from dash.dependencies import Input, Output
 from sklearn import datasets
 from sklearn.cluster import KMeans
 
@@ -54,7 +53,10 @@ app_layout = dbc.Container(
         html.H1("Iris k-means clustering"),
         html.Hr(),
         dbc.Row(
-            [dbc.Col(controls, md=4), dbc.Col(dcc.Graph(id="cluster-graph"), md=8),],
+            [
+                dbc.Col(controls, md=4),
+                dbc.Col(dcc.Graph(id="cluster-graph"), md=8),
+            ],
             align="center",
         ),
     ],
@@ -71,7 +73,7 @@ def filter_options(v):
 def make_graph(x, y, n_clusters):
     # minimal input validation, make sure there's at least one cluster
     km = KMeans(n_clusters=max(n_clusters, 1))
-    df = iris.loc[:, [x, y]]
+    df = iris.loc[:, [x, y]]  # noqa: PD901
     km.fit(df.values)
     df["cluster"] = km.labels_
 
@@ -83,7 +85,7 @@ def make_graph(x, y, n_clusters):
             y=df.loc[df.cluster == c, y],
             mode="markers",
             marker={"size": 8},
-            name="Cluster {}".format(c),
+            name=f"Cluster {c}",
         )
         for c in range(n_clusters)
     ]
@@ -113,19 +115,24 @@ def init_callbacks(dash_app):
         ],
     )(make_graph)
     # functionality is the same for both dropdowns, so we reuse filter_options
-    dash_app.callback(Output("x-variable", "options"), [Input("y-variable", "value")],)(
-        filter_options
-    )
-    dash_app.callback(Output("y-variable", "options"), [Input("x-variable", "value")],)(
-        filter_options
-    )
+    dash_app.callback(
+        Output("x-variable", "options"),
+        [Input("y-variable", "value")],
+    )(filter_options)
+    dash_app.callback(
+        Output("y-variable", "options"),
+        [Input("x-variable", "value")],
+    )(filter_options)
 
     return dash_app
 
 
 def init_dash(server):
     """Create a Plotly Dash dashboard."""
-    dash_app = Dash(server=server, routes_pathname_prefix="/iris-k-means/",)
+    dash_app = Dash(
+        server=server,
+        routes_pathname_prefix="/iris-k-means/",
+    )
 
     # create dash layout
     dash_app.layout = app_layout
