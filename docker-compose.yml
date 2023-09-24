@@ -7,9 +7,12 @@ services:
       target: dev
     container_name: app
     environment:
+      APP_NAME: "Flask Dash App"
       FLASK_APP: app/main
       FLASK_RUN_HOST: "0.0.0.0"
       FLASK_RUN_PORT: "80"
+      FLASK_DEBUG: "1"
+      SECRET_KEY: dev
     ports:
       - "${PORT}:80"
     volumes:
