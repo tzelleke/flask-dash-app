@@ -2,8 +2,8 @@
 name = "flask-dash-app"
 version = "0.1.0"
 description = "Integrate Plotly Dash into your Flask applications."
-authors = ["tzelleke <theodros.zelleke@gmail.com>"]
-maintainers = ["tzelleke <theodros.zelleke@gmail.com>"]
+authors = ["tzelleke <it@tzelleke.com>"]
+maintainers = ["tzelleke <it@tzelleke.com>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/tzelleke/flask-dash-app"
