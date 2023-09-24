@@ -2,7 +2,9 @@ version: '3.9'
 
 services:
   app:
-    build: ./
+    build:
+      context: .
+      target: dev
     container_name: app
     environment:
       FLASK_ENV: development
