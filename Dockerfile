@@ -1,5 +1,8 @@
 ARG PYTHON_VERSION=3.11
 ARG POETRY_VERSION=1.6
+ARG UID=1000
+ARG GID=1000
+ARG USER=app
 
 FROM tiangolo/uwsgi-nginx-flask:python${PYTHON_VERSION} as base
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -28,6 +31,25 @@ COPY pyproject.toml poetry.lock* ./
 RUN poetry install --only main --no-root --no-interaction --no-ansi
 
 FROM poetry as dev
+# install sudo
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends sudo \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+# Create dedicated user, add to sudoers
+ARG USER
+ARG UID
+ARG GID
+RUN groupadd -g ${GID} ${USER} \
+    && useradd \
+    --no-log-init \
+    --create-home \
+    --shell /bin/bash \
+    --uid ${UID} \
+    --gid ${GID} \
+    ${USER} \
+    && echo "${USER} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
+    && getent passwd ${USER}
 RUN poetry install --no-root --no-interaction --no-ansi
 COPY . .
 

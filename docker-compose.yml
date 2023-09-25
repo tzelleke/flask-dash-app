@@ -2,10 +2,11 @@ version: "3.9"
 
 services:
   app:
+    container_name: app
     build:
       context: .
       target: dev
-    container_name: app
+    image: flask-dash-app
     environment:
       APP_NAME: "Flask Dash App"
       FLASK_APP: app/main
@@ -14,7 +15,7 @@ services:
       FLASK_DEBUG: "1"
       SECRET_KEY: dev
     ports:
-      - "${PORT}:80"
+      - "127.0.0.1:${PORT}:80"
     volumes:
       - .:/app
     command: ["flask", "run"]

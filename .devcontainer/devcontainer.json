@@ -1,0 +1,25 @@
+{
+  "name": "flask-dash-app",
+  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],
+  "service": "app",
+  "workspaceFolder": "/app",
+  "remoteUser": "app",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "ms-python.python",
+        "ms-python.black-formatter",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "esbenp.prettier-vscode",
+        "tamasfe.even-better-toml",
+        "samuelcolvin.jinjahtml",
+        "ms-azuretools.vscode-docker",
+        "github.vscode-github-actions",
+        "eamodio.gitlens"
+      ]
+    }
+  }
+}

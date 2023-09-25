@@ -29,8 +29,9 @@ It allows you to
 - [What's included](#whats-included)
 - [Getting started](#getting-started)
   - [Integrate your Dash app](#integrate-your-dash-app)
-- [Examples](#examples)
 - [Development](#development)
+  - [VSCode devcontainer](#vscode-devcontainer)
+  - [Dockerfile](#dockerfile)
 - [Global layout: integration of individual dash apps](#global-layout-integration-of-individual-dash-apps)
 - [Credits](#credits)
 - [License](#license)
@@ -49,7 +50,7 @@ Docker base image:
 git clone https://github.com/tzelleke/flask-dash-app.git
 cd flask-dash-app
 cp .env.example .env
-docker-compose up -d
+docker compose up -d
 ```
 
 ### Integrate your Dash app
@@ -114,7 +115,45 @@ Add the new route to the global navbar in `app/templates/partials/navbar.html`
 Manage python dependencies (using [Poetry](https://python-poetry.org/docs/))
 
 ```shell
-docker-compose run web poetry update # ... or any other poetry command
+docker compose run app poetry update # ... or any other poetry command
+```
+
+### VSCode devcontainer
+
+This project includes a [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) configuration for VSCode.
+This allows you to develop inside a container with all the necessary dependencies installed.
+See the `.devcontainer` and `.vscode` folders for details.
+
+To ease development inside the devcontainer, the `dev` stage of the multi-stage `Dockerfile` adds an sudo-enabled user `app`.
+You can adapt the user id and group id in the `Dockerfile` to match your local user id and group id.
+
+The devcontainer does not start the Flask server automatically.
+You have to start the Flask server manually, ie. issue `flask run` in a terminal.
+
+### Dockerfile
+
+Here is a brief overview of the multi-stage `Dockerfile` with the available build arguments and some explanations:
+
+```dockerfile
+ARG PYTHON_VERSION=3.11
+ARG POETRY_VERSION=1.6
+ARG UID=1000
+ARG GID=1000
+ARG USER=app
+
+FROM tiangolo/uwsgi-nginx-flask:python${PYTHON_VERSION} as base
+...
+
+FROM base as poetry
+...
+
+FROM poetry as dev
+# add sudo-enabled user
+...
+
+FROM base as prod
+# does not include Poetry dependencies
+...
 ```
 
 ## Global layout: integration of individual dash apps
