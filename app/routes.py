@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 from flask import current_app as app
 from flask import render_template
@@ -26,6 +27,24 @@ def index():
             )
             .replace("codehilite", "codehilite p-2 mb-3")
         )
+
+        def replace_heading(match):
+            level = match.group(1)
+            text = match.group(2)
+            id = text.translate(
+                str.maketrans(
+                    {
+                        " ": "-",
+                        "'": "",
+                        ":": "",
+                    }
+                )
+            ).lower()
+            style = "padding-top: 70px; margin-top: -70px;"
+            return f'<h{level} id="{id}" style="{style}">{text}</h{level}>'
+
+        html = re.sub(r"<h([1-3])>(.+)</h\1>", replace_heading, html)
+
         return render_template(
             "index.html",
             content=Markup(html),
