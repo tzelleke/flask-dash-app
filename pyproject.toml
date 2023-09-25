@@ -71,8 +71,8 @@ select = [
   "NPY",         # NumPy specific rules
   "PD",          # pandas-vet
 ]
-extend-ignore = [
-  "PLR",    # Design related pylint codes
+ignore = [
+  "PLR", # Design related pylint codes
 ]
 typing-modules = ["mypackage._compat.typing"]
 src = ["src"]
