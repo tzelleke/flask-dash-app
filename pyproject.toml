@@ -34,6 +34,13 @@ pre-commit = "^3.4.0"
 ruff = "^0.0.291"
 
 
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = ["-ra", "-q"]
+testpaths = ["tests"]
+cache_dir = "/tmp/pytest_cache"
+
+
 [tool.black]
 include = '\.pyi?$'
 line-length = 88
