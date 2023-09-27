@@ -3,9 +3,15 @@
 docker-compose.yml
 Dockerfile
 .dockerignore
+.gitignore
+.pre-commit-config.yaml
 .idea/
+.vscode/
+.devcontainer/
 .git/
+.github/
 venv/
+.venv/
 *.pyc
 __pycache__/
 instance/
