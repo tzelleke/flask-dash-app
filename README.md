@@ -9,6 +9,10 @@ See this [gist](https://gist.github.com/danieldogeanu/739f88ea5312aaa23180e162e3
 
 ---
 
+[Live demo](https://flask-dash-app-zcyc76b2aq-ey.a.run.app/) (be patient, runs on GCP Cloud Run without minimum instances hence cold start may take a few seconds)
+
+---
+
 This is a demo application that can serve as a starter project template.
 
 - [Base image Python 3.11](https://github.com/tiangolo/uwsgi-nginx-flask-docker)
