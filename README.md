@@ -1,3 +1,5 @@
+![ci workflow](https://github.com/tzelleke/flask-dash-app/actions/workflows/ci.yml/badge.svg)
+
 # Flask Dash App
 
 !!Note: The default branch changed from `master` to `main`!!
