@@ -1,4 +1,5 @@
 ![ci workflow](https://github.com/tzelleke/flask-dash-app/actions/workflows/ci.yml/badge.svg)
+![tests workflow](https://github.com/tzelleke/flask-dash-app/actions/workflows/tests.yml/badge.svg)
 
 # Flask Dash App
 
